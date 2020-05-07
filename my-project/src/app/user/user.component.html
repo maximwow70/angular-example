@@ -1,0 +1,20 @@
+<div class="app--user" [ngClass]="{ 'dark': true }">
+    {{ user.id }} {{ user.name }} {{canSave()}}
+
+    <div>
+        <button
+            class="app--user--save"
+            (click)="save(user)"
+            [disabled]="!canSave()">
+            save
+        </button>
+    </div>
+
+    <div>
+        <div class="app--user--is-saved" [hidden]="!isUserSaved">user saved</div>
+        <input type="text" [(ngModel)]="user.name" (ngModelChange)="userChanged($event)">
+    </div>
+
+    <p class="error" [hidden]="canSave()">Invalid user name</p>
+
+</div>
