@@ -1,0 +1,12 @@
+.app--user-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &--user {
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #fff;
+        }
+    }
+}
