@@ -22,7 +22,7 @@ export class UserComponent implements OnInit {
   public user: User = new User(
     Math.round(Math.random() * 9),
     this._userNameList[
-      Math.round(Math.random() * 5)
+      Math.round(Math.random() * (this._userNameList.length - 1))
     ],
     Math.random() > 0.5
   );
