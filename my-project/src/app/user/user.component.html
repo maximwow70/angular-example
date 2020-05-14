@@ -1,15 +1,25 @@
 <div class="app--user"
-    (click)="selectUser()"
     [class.selected]="isUserSelected"
-    *ngIf="user">
+    *ngIf="user"
+    appCustomTitle
+    [appCustomTitleValue]="'hello 1'">
+
+    <button (click)="toggleMode()">{{ isEditMode ? 'SAVE' : 'EDIT'}}</button>
     <div class="app--user--index">{{ index + 1 }}</div>
-    <div class="app--user--name">{{ user.name }}</div>
-    
-    <div class="app--user--is-new" *ngIf="user.isNew">
-        <div *ngTemplateOutlet="defaultNewTemplate"></div>
+    <div class="app--user--name">
+        <div *ngIf="isEditMode">
+            <input type="text" [(ngModel)]="user.name">
+        </div>
+        <div *ngIf="!isEditMode">
+            {{ user.name }}
+        </div>
     </div>
 
+    <ng-container *ngIf="user.isNew">
+        <div *ngTemplateOutlet="newTemplate || defaultNewTemplate"></div>
+    </ng-container>
+
     <ng-template #defaultNewTemplate>
-        <span>new!!</span>
+        <div class="app--user--is-new">new</div>
     </ng-template>
 </div>

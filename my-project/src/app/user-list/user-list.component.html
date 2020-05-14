@@ -1,12 +1,29 @@
 <ul class="app--user-list">
-    <li class="app--user-list--user">
+
+    <div class="app--user-list--action-list">
+        <button class="app--user-list--action" (click)="sort()">sort</button>
+        <input type="text" class="app--user-list--action" [(ngModel)]="userSearch" (ngModelChange)="search()">
+    </div>
+
+    <li class="app--user-list--user" #myInput>
         <app-user
-            *ngFor="let user of userList; let i = index"
+            *ngFor="let user of filteredUserList; let i = index"
             [user]="user"
-            [index]="i">
+            [index]="i"
+            [newTemplate]="i === 5 ? customNewTemplate : null"
+            [isUserSelected]="isUserSelected(user)"
+            (onUserSelect)="selectUser($event)">
         </app-user>
     </li>
     <li>
         <button class="app--user-list--trigger" (click)="trigger()">trigger</button>
     </li>
+    <div class="app--user-list--selected-user" *ngIf="selectedUser">
+        <app-user [user]="selectedUser" [index]="1"></app-user>
+    </div>
+
+
+    <ng-template #customNewTemplate>
+        <div [style.color]="'red'">new!!!</div>
+    </ng-template>
 </ul>

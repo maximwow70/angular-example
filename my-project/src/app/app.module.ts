@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { CustomTitleDirective } from './custom-title.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    UserListComponent
+    UserListComponent,
+    CustomTitleDirective
   ],
   imports: [
     BrowserModule,
