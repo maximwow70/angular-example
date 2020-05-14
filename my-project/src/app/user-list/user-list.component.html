@@ -1,20 +1,12 @@
 <ul class="app--user-list">
     <li class="app--user-list--user">
-        <app-user></app-user>
+        <app-user
+            *ngFor="let user of userList; let i = index"
+            [user]="user"
+            [index]="i">
+        </app-user>
     </li>
-    <li class="app--user-list--user">
-        <app-user></app-user>
-    </li>
-    <li class="app--user-list--user">
-        <app-user></app-user>
-    </li>
-    <li class="app--user-list--user">
-        <app-user></app-user>
-    </li>
-    <li class="app--user-list--user">
-        <app-user></app-user>
-    </li>
-    <li class="app--user-list--user">
-        <app-user></app-user>
+    <li>
+        <button class="app--user-list--trigger" (click)="trigger()">trigger</button>
     </li>
 </ul>

@@ -9,23 +9,11 @@ import { User } from './user';
 })
 export class UserComponent implements OnInit {
 
-  // tslint:disable-next-line: variable-name
-  private _userNameList: string[] = [
-    'Mike',
-    'Misha',
-    'Vadzim',
-    'Slava',
-    'Alexander',
-    'Oleg'
-  ];
+  @Input()
+  public user: User;
 
-  public user: User = new User(
-    Math.round(Math.random() * 9),
-    this._userNameList[
-      Math.round(Math.random() * (this._userNameList.length - 1))
-    ],
-    Math.random() > 0.5
-  );
+  @Input()
+  public index: number;
 
   public isUserSelected: boolean = false;
 
@@ -35,7 +23,7 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public selectUser(user: User): void {
+  public selectUser(): void {
     this.isUserSelected = true;
     console.log(`user selected: ${this.user.id} ${this.user.name}`);
   }

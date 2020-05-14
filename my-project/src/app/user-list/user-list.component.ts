@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren, ViewChild, ElementRef } from '@angular/core';
 import { User } from '../user/user';
+import { UserComponent } from '../user/user.component';
 
 @Component({
   selector: 'app-user-list',
@@ -17,9 +18,18 @@ export class UserListComponent implements OnInit {
     new User(1001020, 'Oleg', true),
   ];
 
+  @ViewChildren(UserComponent)
+  public userComponents: UserComponent[];
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public trigger(): void {
+    this.userComponents.forEach(userComponent => {
+      userComponent.selectUser();
+    });
   }
 
 }
