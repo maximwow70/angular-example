@@ -4,21 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { CustomTitleDirective } from './custom-title.directive';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    UserComponent,
-    UserListComponent,
-    CustomTitleDirective
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    UserModule
   ],
   exports: [AppComponent],
   providers: [],
