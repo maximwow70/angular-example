@@ -37,8 +37,8 @@ export class UserListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.sort();
     this.search();
+    this.sort();
   }
 
   public selectUser(user: User) {
@@ -68,7 +68,7 @@ export class UserListComponent implements OnInit {
   }
 
   public sort(): void {
-    this.userList = this.userList.sort((user, otherUser) => {
+    this.filteredUserList = this.filteredUserList.sort((user, otherUser) => {
       const userName: string = String(user.name).toLowerCase();
       const otherUserName: string = String(otherUser.name).toLowerCase();
       const result: boolean = this.isUserSortedByIncrease
