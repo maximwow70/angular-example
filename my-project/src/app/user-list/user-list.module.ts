@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserComponent } from './user/user.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { CustomTitleDirective } from './custom-title/custom-title.directive';
 import { FormsModule } from '@angular/forms';
+import { UserComponent } from './user/user.component';
+import { UserListComponent } from './user-list.component';
+import { CustomTitleDirective } from './custom-title/custom-title.directive';
 
 
 
@@ -21,4 +21,4 @@ import { FormsModule } from '@angular/forms';
     UserListComponent
   ]
 })
-export class UserModule { }
+export class UserListModule { }

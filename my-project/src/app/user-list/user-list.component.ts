@@ -1,6 +1,6 @@
 import { OnInit, Component, ViewChildren } from '@angular/core';
-import { User } from '../user';
-import { UserComponent } from '../user/user.component';
+import { UserComponent } from './user/user.component';
+import { User } from './_models/user';
 
 
 @Component({

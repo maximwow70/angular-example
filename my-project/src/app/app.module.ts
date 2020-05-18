@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserModule } from './user/user.module';
+import { UserListModule } from './user-list/user-list.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { UserModule } from './user/user.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    UserModule
+    UserListModule
   ],
   exports: [AppComponent],
   providers: [],
