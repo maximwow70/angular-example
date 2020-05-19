@@ -1,0 +1,18 @@
+.app--user-details {
+
+    min-width: 200px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &--name {
+        padding: 0 10px;
+        flex: 1;
+    }
+    &--id,
+    &--is-new {
+        flex-shrink: 0;
+    }
+}

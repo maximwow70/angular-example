@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "nike"
+    },
+    {
+        "id": 2,
+        "name": "vadzim"
+    },
+    {
+        "id": 3,
+        "name": "Slava",
+        "isNew": true
+    },
+    {
+        "id": 4,
+        "name": "Oleg",
+        "isNew": true
+    },
+    null,
+    null
+]

@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, EventEmitter, Output, HostListener, HostBinding, Input } from '@angular/core';
 import { User } from '../_models/user';
+import { UserListService } from '../_services/user-list/user-list.service';
 
 // tslint:disable-next-line: no-conflicting-lifecycle
 @Component({
@@ -38,7 +39,9 @@ export class UserComponent {
 
   public updateUserInterval: any = null;
 
-  constructor() {
+  constructor(
+    public userListService: UserListService
+  ) {
   }
 
   public toggleMode(): void {

@@ -1,29 +1,51 @@
-<ul class="app--user-list">
+<div class="app--user-list" *ngIf="!userListService.isLoading">
 
-    <div class="app--user-list--action-list">
-        <button class="app--user-list--action" (click)="sort()">sort</button>
-        <input type="text" class="app--user-list--action" [(ngModel)]="userSearch" (ngModelChange)="search()">
+    <ul class="app--user-list--content">
+
+        <div class="app--user-list--action-list" *ngIf="userListService.settings">
+            <button class="app--user-list--action"
+                (click)="userListService.sort()"
+                *ngIf="userListService.settings.isSortActive">
+                sort
+            </button>
+            <input
+                type="text"
+                class="app--user-list--action"
+                [(ngModel)]="userListService.userSearch"
+                (ngModelChange)="userListService.search()"
+                *ngIf="userListService.settings.isSearchActive">
+            <button
+                class="app--user-list--action"
+                (click)="userListService.save()">
+                save
+            </button>
+        </div>
+    
+        <li class="app--user-list--user" #myInput>
+            <app-user
+                *ngFor="let user of userListService.userList; let i = index"
+                [user]="user"
+                [index]="i"
+                [newTemplate]="i === 5 ? customNewTemplate : null"
+                [isUserSelected]="userListService.isUserSelected(user)"
+                (onUserSelect)="userListService.selectUser($event)">
+            </app-user>
+        </li>
+        <li>
+            <button class="app--user-list--trigger" (click)="trigger()">trigger</button>
+        </li>
+    
+    
+        <ng-template #customNewTemplate>
+            <div [style.color]="'red'">new!!!</div>
+        </ng-template>
+    </ul>
+
+    <div class="app--user-list--selected-user" *ngIf="userListService.selectedUser">
+        <app-user-details [user]="userListService.selectedUser"></app-user-details>
     </div>
+</div>
 
-    <li class="app--user-list--user" #myInput>
-        <app-user
-            *ngFor="let user of filteredUserList; let i = index"
-            [user]="user"
-            [index]="i"
-            [newTemplate]="i === 5 ? customNewTemplate : null"
-            [isUserSelected]="isUserSelected(user)"
-            (onUserSelect)="selectUser($event)">
-        </app-user>
-    </li>
-    <li>
-        <button class="app--user-list--trigger" (click)="trigger()">trigger</button>
-    </li>
-    <div class="app--user-list--selected-user" *ngIf="selectedUser">
-        <app-user [user]="selectedUser" [index]="1"></app-user>
-    </div>
-
-
-    <ng-template #customNewTemplate>
-        <div [style.color]="'red'">new!!!</div>
-    </ng-template>
-</ul>
+<div class="app--user-list--loading" *ngIf="userListService.isLoading">
+    loading...
+</div>
