@@ -6,11 +6,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserListModule } from './user-list/user-list.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AboutComponent } from './about/about.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AboutComponent,
+    ContactsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

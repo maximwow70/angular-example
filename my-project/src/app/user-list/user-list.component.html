@@ -35,7 +35,6 @@
             <button class="app--user-list--trigger" (click)="trigger()">trigger</button>
         </li>
     
-    
         <ng-template #customNewTemplate>
             <div [style.color]="'red'">new!!!</div>
         </ng-template>
@@ -46,6 +45,8 @@
     </div>
 </div>
 
-<div class="app--user-list--loading" *ngIf="userListService.isLoading">
-    loading...
+<div class="app--user-list" *ngIf="userListService.isLoading">
+    <div class="app--user-list--loading">
+        loading...
+    </div>
 </div>

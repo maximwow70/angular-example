@@ -1,8 +1,24 @@
 .app {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
 
     height: 100vh;
+
+    &--navigation {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+
+        height: 40px;
+        line-height: 40px;
+        padding: 0 20px;
+    }
+    &--navigation-item {
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+    }
 }
