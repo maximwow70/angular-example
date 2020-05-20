@@ -17,8 +17,16 @@
         padding: 0 20px;
     }
     &--navigation-item {
+
+        color: #263859;
+        text-decoration: none;
+
         &:not(:last-child) {
             margin-right: 10px;
+        }
+
+        &:hover {
+            color: #ff6768;
         }
     }
 }
