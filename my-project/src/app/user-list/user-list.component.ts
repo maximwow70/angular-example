@@ -23,7 +23,4 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public trigger(): void {
-  }
-
 }

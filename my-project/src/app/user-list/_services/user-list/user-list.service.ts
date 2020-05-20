@@ -4,7 +4,7 @@ import { UserListDataService } from '../user-list-data/user-list-data.service';
 
 import { delay, take, takeUntil, tap } from 'rxjs/operators';
 import { UserListSettings } from '../../_models/user-list-settings';
-import { Subscription, Subject, forkJoin, combineLatest } from 'rxjs';
+import { Subscription, Subject, forkJoin, combineLatest, ReplaySubject } from 'rxjs';
 import { UserListSnapshot } from '../../_models/user-list-snapshot';
 
 export function toSaveLowerCase(value: string): string {
@@ -20,6 +20,8 @@ export class UserListService implements OnDestroy {
 
   public savedUserList: User[] = [];
   public userList: User[] = [];
+
+  public savedUserList$: ReplaySubject<User[]> = new ReplaySubject<User[]>(1);
 
   public settings: UserListSettings = null;
 
@@ -66,6 +68,7 @@ export class UserListService implements OnDestroy {
     this.userSearch = uls.userSearch;
     this.isUserSortedByIncrease = uls.isSortedByIncrease;
     this.savedUserList = uls.userList;
+    this.savedUserList$.next(this.savedUserList);
     this.search();
     this.sort();
   }
