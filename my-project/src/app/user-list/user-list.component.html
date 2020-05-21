@@ -28,7 +28,7 @@
                 [index]="i"
                 [newTemplate]="i === 5 ? customNewTemplate : null"
                 [isUserSelected]="userListService.isUserSelected(user)"
-                (onUserSelect)="userListService.selectUser($event)">
+                (onUserSelect)="selectUser($event.id)">
             </app-user>
         </li>
     
@@ -37,8 +37,8 @@
         </ng-template>
     </ul>
 
-    <div class="app--user-list--selected-user" *ngIf="userListService.selectedUser">
-        <app-user-details [user]="userListService.selectedUser"></app-user-details>
+    <div class="app--user-list--selected-user">
+        <router-outlet></router-outlet>
     </div>
 </div>
 

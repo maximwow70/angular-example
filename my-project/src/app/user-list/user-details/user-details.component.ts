@@ -9,9 +9,13 @@ import { UserListService } from '../_services/user-list/user-list.service';
 })
 export class UserDetailsComponent implements OnInit {
 
-  @Input() user: User = null;
+  public get user(): User {
+    return this._userListService.selectedUser;
+  }
 
-  constructor() { }
+  constructor(
+    private _userListService: UserListService
+  ) { }
 
   ngOnInit(): void {
   }

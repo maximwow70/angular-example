@@ -1,9 +1,15 @@
 <div class="app">
   <div class="app--navigation">
-    <a href="" class="app--navigation-item">home</a>
-    <a href="" class="app--navigation-item">users</a>
-    <a href="" class="app--navigation-item">contacts</a>
-    <a href="" class="app--navigation-item">about us</a>
+    <a class="app--navigation-item"
+      routerLink=""
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }">
+      home
+    </a>
+    <a class="app--navigation-item" routerLink="/users" routerLinkActive="active">users</a>
+    <a class="app--navigation-item" routerLink="/contacts" routerLinkActive="active">contacts</a>
+    <a class="app--navigation-item" routerLink="/about" routerLinkActive="active">about us</a>
+    <a class="app--navigation-item" routerLink="/not-found" routerLinkActive="active">not found</a>
   </div>
   <div class="app--router-outlet">
     <router-outlet></router-outlet>

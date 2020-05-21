@@ -5,27 +5,36 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserListModule } from './user-list/user-list.module';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { AboutComponent } from './about/about.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { HomeComponent } from './home/home.component';
+import { UserListRoutingModule } from './user-list/user-list-routing.module';
+import { AboutMeComponent } from './about-me/about-me.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { CanProceedToContactsGuard } from './_guards/can-proceed-to-contacts.guard';
+import { SuperNotFoundComponent } from './super-not-found/super-not-found.component';
+import { NotFoundModule } from './not-found/not-found.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent,
     AboutComponent,
     ContactsComponent,
-    HomeComponent
+    HomeComponent,
+    AboutMeComponent,
+    AboutUsComponent,
+    SuperNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
-    UserListModule
+    UserListModule,
+    AppRoutingModule
   ],
   exports: [AppComponent],
-  providers: [],
+  providers: [
+    CanProceedToContactsGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

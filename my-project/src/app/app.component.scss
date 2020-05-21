@@ -28,5 +28,9 @@
         &:hover {
             color: #ff6768;
         }
+
+        &.active {
+            text-decoration: underline;
+        }
     }
 }

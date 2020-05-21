@@ -1,37 +1,45 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserListComponent } from './user-list/user-list.component';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { AboutComponent } from './about/about.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { HomeComponent } from './home/home.component';
+import { AboutMeComponent } from './about-me/about-me.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { CanProceedToContactsGuard } from './_guards/can-proceed-to-contacts.guard';
+import { SuperNotFoundComponent } from './super-not-found/super-not-found.component';
 
 
 const routes: Routes = [
+  {
+    path: 'not-found',
+    loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule)
+  },
   {
     path: '',
     component: HomeComponent
   },
   {
-    path: 'users',
-    component: UserListComponent
-  },
-  {
-    path: 'user-list',
-    redirectTo: '/users',
-    pathMatch: 'full'
-  },
-  {
     path: 'contacts',
-    component: ContactsComponent
+    component: ContactsComponent,
+    canActivate: [CanProceedToContactsGuard]
   },
   {
     path: 'about',
-    component: AboutComponent
+    component: AboutComponent,
+    children: [
+      {
+        path: 'me',
+        component: AboutMeComponent
+      },
+      {
+        path: 'us',
+        component: AboutUsComponent
+      }
+    ]
   },
   {
     path: '**',
-    component: NotFoundComponent
+    component: SuperNotFoundComponent
   }
 ];
 
