@@ -13,7 +13,12 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CanProceedToContactsGuard } from './_guards/can-proceed-to-contacts.guard';
 import { SuperNotFoundComponent } from './super-not-found/super-not-found.component';
-import { NotFoundModule } from './not-found/not-found.module';
+import { RegistrationComponent } from './registration/registration.component';
+import { PipesPresentationComponent } from './pipes-presentation/pipes-presentation.component';
+
+import ru from '@angular/common/locales/ru';
+import ar from '@angular/common/locales/ar';
+import { registerLocaleData } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,9 @@ import { NotFoundModule } from './not-found/not-found.module';
     HomeComponent,
     AboutMeComponent,
     AboutUsComponent,
-    SuperNotFoundComponent
+    SuperNotFoundComponent,
+    RegistrationComponent,
+    PipesPresentationComponent
   ],
   imports: [
     BrowserModule,
@@ -37,4 +44,9 @@ import { NotFoundModule } from './not-found/not-found.module';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor() {
+    [ru, ar].forEach(registerLocaleData);
+  }
+}

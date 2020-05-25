@@ -7,6 +7,8 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CanProceedToContactsGuard } from './_guards/can-proceed-to-contacts.guard';
 import { SuperNotFoundComponent } from './super-not-found/super-not-found.component';
+import { PipesPresentationComponent } from './pipes-presentation/pipes-presentation.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 const routes: Routes = [
@@ -22,6 +24,14 @@ const routes: Routes = [
     path: 'contacts',
     component: ContactsComponent,
     canActivate: [CanProceedToContactsGuard]
+  },
+  {
+    path: 'pipes',
+    component: PipesPresentationComponent
+  },
+  {
+    path: 'registration',
+    component: RegistrationComponent
   },
   {
     path: 'about',
