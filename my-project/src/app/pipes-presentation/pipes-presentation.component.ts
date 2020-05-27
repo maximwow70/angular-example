@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user-list/_models/user';
+import { UserListService } from '../user-list/_services/user-list/user-list.service';
 
 @Component({
   selector: 'app-pipes-presentation',
@@ -20,9 +21,20 @@ export class PipesPresentationComponent implements OnInit {
 
   public today: Date = new Date();
 
-  constructor() { }
+  constructor(
+    public userListService: UserListService
+  ) { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.userListService.savedUserList
+        .push(new User(100, 'new User', true));
+      // this.userListService.savedUserList = [
+      //   ...this.userListService.savedUserList,
+      //   new User(100, 'new User', true)
+      // ];
+      console.log('pushed');
+    }, 5000);
   }
 
 }

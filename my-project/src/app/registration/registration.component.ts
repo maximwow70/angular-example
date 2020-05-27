@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
+  public name: string = '';
+  public email: string = '';
+  public password: string = '';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public registrate(models: any[]): void {
+    models.forEach((model: any) => {
+      console.log(model);
+    });
   }
 
 }

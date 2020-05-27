@@ -1,4 +1,5 @@
 <ul class="app--pipes-presentation">
+
     <li class="app--pipes-presentation--pipe">
         <div>{{ user }}</div>
         <div>{{ user | json }}</div>
@@ -9,6 +10,7 @@
         <div>{{ revenue | currency }}</div>
         <div>{{ revenue | currency:'USD ':'code' }}</div>
         <div>{{ revenue | currency:'USD ':'code':'15.3-5' }}</div>
+        <div>{{ 123 | currency:'USD ':'code':'15.3-5' }}</div>
         <div>{{ revenue | currency:'USD ':'code':'15.3-5':'ru' }}</div>
     </li>
     
@@ -76,6 +78,33 @@
         </div>
         <div>
             {{ today | date:'full':'+3':'ar' }}
+        </div>
+    </li>
+
+    <li class="app--pipes-presentation--pipe">
+        <div>
+            <span *ngFor="let user of userListService.savedUserList; let i = index">
+                {{ user.name }}{{ i === userListService.savedUserList.length - 1 ? '.' : ',' }}
+            </span>
+        </div>
+
+        <div>
+            <span *ngFor="let user of userListService.savedUserList | customReverse; let i = index">
+                {{ user.name }}{{ i === userListService.savedUserList.length - 1 ? '.' : ',' }}
+            </span>
+        </div>
+    </li>
+    
+    <li class="app--pipes-presentation--pipe">
+        <div>
+            <span *ngFor="let user of userListService.savedUserList$; let i = index">
+                {{ user.name }}{{ i === userListService.savedUserList.length - 1 ? '.' : ',' }}
+            </span>
+        </div>
+        <div>
+            <span *ngFor="let user of userListService.savedUserList$ | async; let i = index">
+                {{ user.name }}{{ i === userListService.savedUserList.length - 1 ? '.' : ',' }}
+            </span>
         </div>
     </li>
 </ul>
