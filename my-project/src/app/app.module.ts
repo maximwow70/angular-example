@@ -9,7 +9,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
-import { CanProceedToContactsGuard } from './guards/can-proceed-to-contacts.guard';
+import { CanProceedToContactsGuard } from './guards/can-proceed-to-contacts/can-proceed-to-contacts.guard';
 import { SuperNotFoundComponent } from './components/super-not-found/super-not-found.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { PipesPresentationComponent } from './components/pipes-presentation/pipes-presentation.component';
