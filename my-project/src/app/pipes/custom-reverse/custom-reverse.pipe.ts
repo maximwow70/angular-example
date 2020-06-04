@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { User } from './user-list/_models/user';
+import { User } from 'src/app/components/user-list/models/user';
 
 @Pipe({
   name: 'customReverse',

@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation, OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, Input } from '@angular/core';
-import { UserListService } from './user-list/_services/user-list/user-list.service';
-import { UserListDataService } from './user-list/_services/user-list-data/user-list-data.service';
+import { UserListService } from './components/user-list/services/user-list/user-list.service';
+import { UserListDataService } from './components/user-list/services/user-list-data/user-list-data.service';
 
 // tslint:disable-next-line: no-conflicting-lifecycle
 @Component({
