@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../user-list/_models/user';
-import { UserListService } from '../user-list/_services/user-list/user-list.service';
+import { UserListService } from '../user-list/services/user-list/user-list.service';
+import { User } from '../user-list/models/user';
 
 @Component({
   selector: 'app-pipes-presentation',

@@ -1,20 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AboutComponent } from './about/about.component';
-import { ContactsComponent } from './contacts/contacts.component';
-import { HomeComponent } from './home/home.component';
-import { AboutMeComponent } from './about-me/about-me.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { CanProceedToContactsGuard } from './_guards/can-proceed-to-contacts.guard';
-import { SuperNotFoundComponent } from './super-not-found/super-not-found.component';
-import { PipesPresentationComponent } from './pipes-presentation/pipes-presentation.component';
-import { RegistrationComponent } from './registration/registration.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
+import { AboutMeComponent } from './components/about-me/about-me.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { CanProceedToContactsGuard } from './guards/can-proceed-to-contacts.guard';
+import { SuperNotFoundComponent } from './components/super-not-found/super-not-found.component';
+import { PipesPresentationComponent } from './components/pipes-presentation/pipes-presentation.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { NgrxPresentationComponent } from './components/ngrx-presentation/ngrx-presentation.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
   {
     path: 'not-found',
-    loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule)
+    loadChildren: () => import('./components/not-found/not-found.module').then(m => m.NotFoundModule)
   },
   {
     path: '',
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'registration',
     component: RegistrationComponent
+  },
+  {
+    path: 'ngrx',
+    component: NgrxPresentationComponent
   },
   {
     path: 'about',

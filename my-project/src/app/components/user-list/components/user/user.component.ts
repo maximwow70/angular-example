@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy, EventEmitter, Output, HostListener, HostBinding, Input } from '@angular/core';
-import { User } from '../_models/user';
-import { UserListService } from '../_services/user-list/user-list.service';
+import { UserListService } from '../../services/user-list/user-list.service';
+import { User } from '../../models/user';
 
 // tslint:disable-next-line: no-conflicting-lifecycle
 @Component({

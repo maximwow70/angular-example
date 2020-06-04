@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserListComponent } from './user-list.component';
-import { UserDetailsComponent } from './user-details/user-details.component';
-import { UserPhotoComponent } from './user-photo/user-photo.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { UserPhotoComponent } from './components/user-photo/user-photo.component';
 
 const routes: Routes = [
   {
