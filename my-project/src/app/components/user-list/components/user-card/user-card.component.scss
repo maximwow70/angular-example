@@ -1,4 +1,10 @@
 .user-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+
     width: 300px;
     padding: 10px 20px;
     background-color: #17223b;

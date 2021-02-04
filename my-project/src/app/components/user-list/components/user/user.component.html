@@ -1,9 +1,22 @@
-<div class="user" [title]="user.name" [class.disabled]="disabled">
+<div
+    class="user"
+    [title]="user.name"
+    [class.disabled]="disabled"
+    [class.not-disabled]="!disabled">
     <div class="user--id">
         id: {{user.id}}
     </div>
     <div class="user--name">
         name: {{user.name}}
+    </div>
+    <div class="user--is-new">
+        is new: {{user.isNew}}
+    </div>
+    <div class="user--content" [style.color]="disabled ? 'red' : '#fff'">
+        content: <ng-content></ng-content>
+    </div>
+    <div class="user--disabled" *ngIf="disabled">
+        I'm disabled
     </div>
 
     <input type="text" [(ngModel)]="user.name">

@@ -15,13 +15,33 @@ export class User {
     public set name(name: string) {
         this._name = name;
     }
+    
+    private _hidden: boolean;
+    public get hidden(): boolean {
+        return this._hidden;
+    }
+    public set hidden(hidden: boolean) {
+        this._hidden = hidden;
+    }
+    
+    private _isNew: boolean;
+    public get isNew(): boolean {
+        return this._isNew;
+    }
+    public set isNew(isNew: boolean) {
+        this._isNew = isNew;
+    }
 
     constructor(
         id: number,
-        name: string
+        name: string,
+        hidden: boolean = false,
+        isNew: boolean = false
     ) {
         this._id = id;
         this._name = name;
+        this._hidden = hidden;
+        this._isNew = isNew;
     }
 
 }

@@ -7,6 +7,10 @@
     &--user-card {
         margin-right: 5px;
         flex-shrink: 0;
+
+        &:not(:last-child) {
+            margin-bottom: 5px;
+        }
     }
     &--user {
         flex: 1;
