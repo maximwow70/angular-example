@@ -1,49 +1,9 @@
-<div class="app--user-list" *ngIf="!userListService.isLoading">
 
-    <ul class="app--user-list--content">
-
-        <div class="app--user-list--action-list" *ngIf="userListService.settings">
-            <button class="app--user-list--action"
-                (click)="userListService.sort()"
-                *ngIf="userListService.settings.isSortActive">
-                sort
-            </button>
-            <input
-                type="text"
-                class="app--user-list--action"
-                [(ngModel)]="userListService.userSearch"
-                (ngModelChange)="userListService.search()"
-                *ngIf="userListService.settings.isSearchActive">
-            <button
-                class="app--user-list--action"
-                (click)="userListService.save()">
-                save
-            </button>
-        </div>
-    
-        <li class="app--user-list--user" #myInput>
-            <app-user
-                *ngFor="let user of userListService.userList; let i = index"
-                [user]="user"
-                [index]="i"
-                [newTemplate]="i === 5 ? customNewTemplate : null"
-                [isUserSelected]="userListService.isUserSelected(user)"
-                (onUserSelect)="selectUser($event.id)">
-            </app-user>
-        </li>
-    
-        <ng-template #customNewTemplate>
-            <div [style.color]="'red'">new!!!</div>
-        </ng-template>
-    </ul>
-
-    <div class="app--user-list--selected-user">
-        <router-outlet></router-outlet>
+<div class="user-list">
+    <div class="user-list--user-card">
+        <app-user-card></app-user-card>
     </div>
-</div>
-
-<div class="app--user-list" *ngIf="userListService.isLoading">
-    <div class="app--user-list--loading">
-        loading...
+    <div class="user-list--user">
+        <app-user></app-user>
     </div>
 </div>

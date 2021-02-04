@@ -1,31 +1,27 @@
 export class User {
 
+    private _id: number;
+    public get id(): number {
+        return this._id;
+    }
+    public set id(id: number) {
+        this._id = id;
+    }
+
+    private _name: string;
+    public get name(): string {
+        return this._name;
+    }
+    public set name(name: string) {
+        this._name = name;
+    }
+
     constructor(
-        public id: number,
-        public name: string,
-        public isNew: boolean = false
-    ) {}
-
-    public static fromJSON(json: any): User {
-        return Boolean(json)
-            ? new User(json.id, json.name, json.isNew)
-            : null;
+        id: number,
+        name: string
+    ) {
+        this._id = id;
+        this._name = name;
     }
 
-    public static toJSON(user: User): any {
-        return Boolean(user)
-            ? {
-                id: user.id,
-                name: user.name,
-                isNew: user.isNew
-            }
-            : {};
-    }
-
-    public equals(user: User): boolean {
-        return Boolean(user)
-            && this.id === user.id
-            && this.name === user.name
-            && this.isNew === user.isNew;
-    }
 }

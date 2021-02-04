@@ -1,25 +1,11 @@
-<div class="app--user"
-    [class.selected]="isUserSelected"
-    *ngIf="user"
-    appCustomTitle
-    [appCustomTitleValue]="'hello 1'">
-
-    <button (click)="toggleMode()">{{ isEditMode ? 'SAVE' : 'EDIT'}}</button>
-    <div class="app--user--index">{{ index + 1 }}</div>
-    <div class="app--user--name">
-        <div *ngIf="isEditMode">
-            <input type="text" [(ngModel)]="user.name">
-        </div>
-        <div *ngIf="!isEditMode">
-            {{ user.name }}
-        </div>
+<div class="user" [title]="user.name" [class.disabled]="disabled">
+    <div class="user--id">
+        id: {{user.id}}
+    </div>
+    <div class="user--name">
+        name: {{user.name}}
     </div>
 
-    <ng-container *ngIf="user.isNew">
-        <div *ngTemplateOutlet="newTemplate || defaultNewTemplate"></div>
-    </ng-container>
-
-    <ng-template #defaultNewTemplate>
-        <div class="app--user--is-new">new</div>
-    </ng-template>
+    <input type="text" [(ngModel)]="user.name">
+    <button (click)="update($event)">update</button>
 </div>

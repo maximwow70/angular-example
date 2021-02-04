@@ -1,61 +1,26 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, EventEmitter, Output, HostListener, HostBinding, Input } from '@angular/core';
-import { UserListService } from '../../services/user-list/user-list.service';
-import { User } from '../../models/user';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { User } from 'src/app/components/user-list/models/user';
 
-// tslint:disable-next-line: no-conflicting-lifecycle
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss'],
-  encapsulation: ViewEncapsulation.Emulated,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./user.component.scss', './user2.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated
 })
-// tslint:disable-next-line: max-line-length
-export class UserComponent {
+export class UserComponent implements OnInit {
 
-  public myUser: User = null;
+  public user: User = new User(3, 'Elon Musk');
 
-  public isEditMode: boolean = false;
+  public disabled: boolean = true;
 
-  @Input()
-  public set user(user: User) {
-    this.myUser = user;
+  constructor() {
   }
 
-  public get user(): User {
-    return this.myUser;
+  ngOnInit(): void {
   }
 
-  @Input()
-  public index: number = null;
-
-  @Input()
-  public isUserSelected: boolean = false;
-
-  @Input() newTemplate: HTMLElement = null;
-
-  @Output()
-  public onUserSelect: EventEmitter<User> = new EventEmitter<User>();
-
-  public updateUserInterval: any = null;
-
-  constructor(
-    public userListService: UserListService
-  ) {
-  }
-
-  public toggleMode(): void {
-    this.isEditMode = !this.isEditMode;
-  }
-
-  @HostListener('click')
-  public selectUser(): void {
-    this.onUserSelect.emit(this.user);
-  }
-
-  @HostBinding('style.cursor')
-  public get cursor(): string {
-    return 'pointer';
+  public update(event: Event): void {
+    console.log(event, this.user);
   }
 
 }
