@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Elon 1",
+        "is_new": false,
+        "hidden": false
+    },
+    {
+        "id": 2,
+        "name": "Elon 3",
+        "is_new": false,
+        "hidden": false
+    },
+    {
+        "id": 3,
+        "name": "Elon 2",
+        "is_new": false,
+        "hidden": true
+    },
+    {
+        "id": 4,
+        "name": "Elon asdas",
+        "is_new": true,
+        "hidden": false
+    },
+    {
+        "id": 5,
+        "name": "Elon qweqe",
+        "is_new": true,
+        "hidden": false
+    }
+]

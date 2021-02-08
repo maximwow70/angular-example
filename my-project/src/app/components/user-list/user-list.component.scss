@@ -15,4 +15,15 @@
     &--user {
         flex: 1;
     }
+
+    &--user-avatar {
+        position: fixed;
+        right: 25px;
+        top: 25px;
+
+        padding: 5px 10px;
+        border-radius: 2px;
+        background-color: #333;
+        color: #fff;
+    }
 }

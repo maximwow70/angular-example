@@ -3,20 +3,25 @@
     <div class="user-list--user-card-list">
         <div
             class="user-list--user-card"
-            *ngFor="let user of userList; let i = index"
+            *ngFor="let user of userListService.userList; let i = index"
             [style.color]="i % 2 === 0 ? '#ffb6b9' : '#17223b'">
             <app-user-card
                 *ngIf="!user.hidden"
                 [user]="user"
                 [newTemplate]="i % 2 === 0 ? newTemplate : undefined"
-                (userClick)="userClick($event)">
+                (userClick)="userListService.selectUser($event)">
             </app-user-card>
         </div>
     </div>
     <div class="user-list--user">
-        <app-user #userName [user]="userList[0]">
+        <app-user *ngIf="userListService.selectedUser" [user]="userListService.selectedUser">
             <div>my new template</div>
         </app-user>
+    </div>
+    <div class="user-list--user-avatar" 
+        *ngIf="userListService.selectedUser">
+        <app-user-avatar>
+        </app-user-avatar>
     </div>
 </div>
 
@@ -26,4 +31,4 @@
     </div>
 </ng-template>
 
-<button (click)="save(userName)">save</button>
+<button (click)="userListService.save()">save</button>
