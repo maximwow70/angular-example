@@ -1,1 +1,17 @@
+.app {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
 
+    height: 100vh;
+
+    &--navigation {
+        width: 300px;
+        height: 100%;
+    }
+    &--user-list {
+        flex: 1;
+        padding-left: 5px;
+    }
+}
