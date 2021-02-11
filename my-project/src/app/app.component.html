@@ -1,21 +1,33 @@
 <div class="app">
     <div class="app--navigation">
         <div class="app-navigation">
-            <a class="app-navigation--item active" href="#">
+            <a class="app-navigation--item"
+                routerLink="/"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }">
                 home
             </a>
-            <a class="app-navigation--item" href="#">
+            <a class="app-navigation--item"
+                routerLink="/about"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }">
                 about
             </a>
-            <a class="app-navigation--item" href="#">
+            <a class="app-navigation--item" routerLink="/about/us" routerLinkActive="active">
+                about us
+            </a>
+            <a class="app-navigation--item" routerLink="/about/me" routerLinkActive="active">
+                about me
+            </a>
+            <a class="app-navigation--item" routerLink="/contacts" routerLinkActive="active">
                 contacts
             </a>
-            <a class="app-navigation--item" href="#">
+            <a class="app-navigation--item" routerLink="/users" routerLinkActive="active">
                 users
             </a>
         </div>
     </div>
     <div class="app--user-list">
-        <app-user-list></app-user-list>
+        <router-outlet></router-outlet>
     </div>
 </div>

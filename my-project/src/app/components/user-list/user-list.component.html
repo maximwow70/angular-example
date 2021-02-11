@@ -9,7 +9,7 @@
                 *ngIf="!user.hidden"
                 [user]="user"
                 [newTemplate]="i % 2 === 0 ? newTemplate : undefined"
-                (userClick)="userListService.selectUser($event)">
+                (userClick)="selectUser($event)">
             </app-user-card>
         </div>
     </div>

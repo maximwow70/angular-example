@@ -7,15 +7,15 @@ import { AppComponent } from './app.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { AboutComponent } from './components/about/about.component';
-import { ContactsComponent } from './components/contacts/contacts.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserListModule } from './components/user-list/user-list.module';
+import { AboutUsGuardGuard } from './guards/about-us-guard.guard';
+import { PermissionService } from './services/permission-service/permission-service.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
-    ContactsComponent,
     HomeComponent,
     AboutMeComponent,
     AboutUsComponent,
@@ -26,7 +26,7 @@ import { UserListModule } from './components/user-list/user-list.module';
     FormsModule,
     UserListModule
   ],
-  providers: [],
+  providers: [PermissionService, AboutUsGuardGuard],
   bootstrap: [AppComponent],
   exports: []
 })
