@@ -4,6 +4,7 @@ import { AboutMeComponent } from './components/about-me/about-me.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
+import { PipesPresentationComponent } from './components/pipes-presentation/pipes-presentation.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { AboutUsGuardGuard } from './guards/about-us-guard.guard';
 
@@ -47,6 +48,10 @@ const routes: Routes = [
         redirectTo: 'us'
       }
     ]
+  },
+  {
+    path: 'pipes',
+    component: PipesPresentationComponent
   },
   {
     path: '**',

@@ -1,0 +1,85 @@
+<ul class="app--pipes-presentation">
+
+    <li class="app--pipes-presentation--pipe">
+        <div>{{ user }}</div>
+        <div>{{ user | json }}</div>
+    </li>
+
+    <li class="app--pipes-presentation--pipe">
+        <div>{{ revenue }}</div>
+        <div>{{ revenue | currency }}</div>
+        <div>{{ revenue | currency:'USD ':'code' }}</div>
+        <div>{{ revenue | currency:'USD ':'code':'15.3-5' }}</div>
+        <div>{{ 123 | currency:'USD ':'code':'15.3-5' }}</div>
+        <div>{{ revenue | currency:'USD ':'code':'15.3-5':'ru' }}</div>
+        <div>{{ revenue | currency:'USD ':'code':'15.3-5':'ar' }}</div>
+    </li>
+    
+    <li class="app--pipes-presentation--pipe">
+        <div>{{ percentValue }}</div>
+        <div>{{ percentValue | percent }}</div>
+        <div>{{ percentValue | percent:'3.4-6' }}</div>
+    </li>
+    
+    <li class="app--pipes-presentation--pipe">
+        <div>{{ user.name }}</div>
+        <div>{{ user.name | uppercase }}</div>
+        <div>{{ user.name | lowercase }}</div>
+        <div>{{ user.name | titlecase }}</div>
+        <div>{{ user.name | reverse:5 }}</div>
+    </li>
+    
+    <li class="app--pipes-presentation--pipe">
+        <div>
+            <span *ngFor="let a of collection">{{a}}</span>
+        </div>
+        <div>
+            <span *ngFor="let a of collection | slice:1:3">{{a}}</span>
+        </div>
+        <div>
+            {{ user.name | slice:2:10 }}
+        </div>
+    </li>
+    
+    <li class="app--pipes-presentation--pipe">
+        <div>
+            {{ e }}
+        </div>
+        <div>
+            {{ e | number }}
+        </div>
+        <div>
+            {{ e | number:'3.1-5' }}
+        </div>
+    </li>
+    
+    <li class="app--pipes-presentation--pipe">
+        <div>
+            {{ today }}
+        </div>
+        <div>
+            {{ today | date }}
+        </div>
+        <div>
+            {{ today | date:'short' }}
+        </div>
+        <div>
+            {{ today | date:'long' }}
+        </div>
+        <div>
+            {{ today | date:'full' }}
+        </div>
+        <div>
+            {{ today | date:'shortDate' }}
+        </div>
+        <div>
+            {{ today | date:'M/d/yy' }}
+        </div>
+        <div>
+            {{ today | date:'full':'+3':'ru' }}
+        </div>
+        <div>
+            {{ today | date:'full':'+3':'ar' }}
+        </div>
+    </li>
+</ul>

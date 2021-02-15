@@ -1,1 +1,34 @@
-<p>contacts works!</p>
+<form class="app-contacts" (ngSubmit)="submit()">
+
+    <div class="app-contacts--email">
+        <label class="app-contacts--email-label">email: </label>
+        <input
+            class="app-contacts--email-value"
+            [class.invalid]="contactsFormEmail.touched && contactsFormEmail.invalid"
+            type="email"
+            name="contactsFormEmail"
+            #contactsFormEmail="ngModel"
+            [(ngModel)]="email"
+            placeholder="email"
+            pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+            required>
+        <div class="app-contacts--email-error" *ngIf="contactsFormEmail.touched && contactsFormEmail.invalid">Please, provide correct email</div>
+    </div>
+    <div>
+        <div>message: </div>
+        <input
+            type="text"
+            name="contactsFormMessage"
+            [(ngModel)]="message"
+            placeholder="message">
+    </div>
+
+    <button
+        class="app-contacts--submit"
+        type="submit"
+        [disabled]="contactsFormEmail.touched && contactsFormEmail.invalid">
+        send message
+    </button>
+    <button (click)="cancel()">fake cancel</button>
+    <button type="button" (click)="cancel()">cancel</button>
+</form>

@@ -1,0 +1,23 @@
+.app-contacts {
+    padding: 20px;
+
+    &--submit {
+        &[disabled] {
+            background-color: #ff6768;
+        }
+    }
+
+    &--email-label {
+        display: block;
+    }
+    &--email-value {
+        &.ng-invalid.ng-touched {
+            border-color: #ff6768;
+        }
+    }
+    &--email-error {
+        font-size: 10px;
+        text-transform: uppercase;
+        color: #ff6768;
+    }
+}
