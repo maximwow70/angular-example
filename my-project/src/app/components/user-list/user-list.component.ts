@@ -6,6 +6,7 @@ import { delay, filter, first, last, map, take, takeUntil, tap, withLatestFrom }
 import { BehaviorSubject, combineLatest, ReplaySubject } from 'rxjs';
 import { UserListService } from './services/user-list/user-list.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { UserListFacadeService } from './store/user-list/user-list.service';
 
 @Component({
   selector: 'app-user-list',
@@ -27,13 +28,16 @@ export class UserListComponent implements OnInit, OnDestroy {
     private _cdr: ChangeDetectorRef,
     private _activatedRoute: ActivatedRoute,
     private _router: Router,
-    public userListService: UserListService
+    public userListService: UserListService,
+    public userListFacadeService: UserListFacadeService
   ) { }
 
   ngOnInit(): void {
+    this.userListFacadeService.loadUserList();
+
     combineLatest([
       this._activatedRoute.params,
-      this._userListDataService.loadUserList().pipe(take(1))
+      this.userListFacadeService.userList$
     ])
       .pipe(takeUntil(this._destroySource$))
       .subscribe(([params, userList]: [Params, User[]]) => {

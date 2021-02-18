@@ -14,7 +14,7 @@ export class UserListDataService {
   ) { }
 
   public loadUserList(): Observable<User[]> {
-    return this._httpClient.get<any[]>('assets/db/user-list.json')
+    return this._httpClient.get<any[]>('assetqweqwes/db/user-list.json')
       .pipe(
         map((userList: User[]) => {
           return userList.map((userJSON: any) => User.fromJSON(userJSON));
