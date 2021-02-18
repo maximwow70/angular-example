@@ -3,7 +3,7 @@
     <div class="user-list--user-card-list">
         <div
             class="user-list--user-card"
-            *ngFor="let user of userListService.userList; let i = index"
+            *ngFor="let user of userList; let i = index"
             [style.color]="i % 2 === 0 ? '#ffb6b9' : '#17223b'">
             <app-user-card
                 *ngIf="!user.hidden"
@@ -31,4 +31,6 @@
     </div>
 </ng-template>
 
-<button (click)="userListService.save()">save</button>
+<div class="loading" *ngIf="this.userListFacadeService.isLoading$ | async">
+    loading...
+</div>

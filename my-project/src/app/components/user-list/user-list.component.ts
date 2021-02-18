@@ -6,6 +6,7 @@ import { delay, filter, first, last, map, take, takeUntil, tap, withLatestFrom }
 import { BehaviorSubject, combineLatest, ReplaySubject } from 'rxjs';
 import { UserListService } from './services/user-list/user-list.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { UserListFacadeService } from './store/user-list/user-list.service';
 
 @Component({
   selector: 'app-user-list',
@@ -19,6 +20,8 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   private _myObservable$: ReplaySubject<number> = new ReplaySubject<number>(10);
 
+  public userList: User[];
+
   @ViewChild(UserComponent)
   public userComponents: any;
 
@@ -27,27 +30,30 @@ export class UserListComponent implements OnInit, OnDestroy {
     private _cdr: ChangeDetectorRef,
     private _activatedRoute: ActivatedRoute,
     private _router: Router,
-    public userListService: UserListService
+    public userListService: UserListService,
+    public userListFacadeService: UserListFacadeService
   ) { }
 
   ngOnInit(): void {
+    this.userListFacadeService.loadUserList();
+
     combineLatest([
       this._activatedRoute.params,
-      this._userListDataService.loadUserList().pipe(take(1))
+      this.userListFacadeService.userList$
     ])
       .pipe(takeUntil(this._destroySource$))
       .subscribe(([params, userList]: [Params, User[]]) => {
+        this.userList = userList;
         const currentUserId: number | null = Boolean(params) ? parseInt(params.id) : null;
-        this.userListService.userList = userList;
 
         if (Boolean(userList) && userList.length > 0) {
-          const currentUser: User | undefined = this.userListService.userList.find((user: User) => {
+          const currentUser: User | undefined = userList.find((user: User) => {
             return user.id === currentUserId;
           });
           if (Boolean(currentUserId)) {
             this.userListService.selectUser(<User>currentUser);
           } else {
-            this.selectUser(this.userListService.userList[0]);
+            this.selectUser(userList[0]);
           }
         }
         // console.log({ currentUserId, userList: this.userListService.userList });
