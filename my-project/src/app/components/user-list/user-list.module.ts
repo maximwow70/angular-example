@@ -8,13 +8,15 @@ import { UserListDataService } from './services/user-list-data/user-list-data.se
 import { HttpClientModule } from '@angular/common/http';
 import { UserListService } from './services/user-list/user-list.service';
 import { UserAvatarComponent } from './components/user-avatar/user-avatar.component';
+import { UserListStoreModule } from './store/store.module';
 
 @NgModule({
   declarations: [UserListComponent, UserComponent, UserCardComponent, UserAvatarComponent],
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    UserListStoreModule,
   ],
   providers: [UserListDataService, UserListService],
   exports: [UserListComponent]

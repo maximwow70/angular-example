@@ -17,7 +17,11 @@ import ru from '@angular/common/locales/ru';
 import ar from '@angular/common/locales/ar';
 import { registerLocaleData } from '@angular/common';
 import { ReversePipe } from './pipes/reverse.pipe';
-import { AppStoreModule } from './store/store.module';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { UserListStoreModule } from './components/user-list/store/store.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +37,9 @@ import { AppStoreModule } from './store/store.module';
     AppRoutingModule,
     FormsModule,
     UserListModule,
-    AppStoreModule
+		StoreModule.forRoot({}),
+		EffectsModule.forRoot([]),
+		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [PermissionService, AboutUsGuardGuard],
   bootstrap: [AppComponent],
