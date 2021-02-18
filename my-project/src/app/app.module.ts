@@ -17,6 +17,7 @@ import ru from '@angular/common/locales/ru';
 import ar from '@angular/common/locales/ar';
 import { registerLocaleData } from '@angular/common';
 import { ReversePipe } from './pipes/reverse.pipe';
+import { AppStoreModule } from './store/store.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { ReversePipe } from './pipes/reverse.pipe';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    UserListModule
+    UserListModule,
+    AppStoreModule
   ],
   providers: [PermissionService, AboutUsGuardGuard],
   bootstrap: [AppComponent],
